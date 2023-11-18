@@ -11,6 +11,22 @@ import "./style.css";
 
 const content = document.querySelector("#content");
 
+const menuContainer = document.createElement("div");
+const menuHTML = `
+<p class="menu-title">Home</p>
+<p>Today</p>
+<p>This Week</p>
+<p class="menu-title">Projects</p>
+<p>Get a Job</p>
+<p>Odin Project</p>
+<p>Fitness</p>
+`;
+
+menuContainer.innerHTML = menuHTML;
+
+menuContainer.classList.add("menu-container");
+content.appendChild(menuContainer);
+
 class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
@@ -24,22 +40,25 @@ const topic = new Todo(
   "Coding Project",
   "Need to have it complete by the end of next week",
   "27/11/2023",
-  "Level 1"
+  "High"
 );
 
 const topic2 = new Todo(
   "Going for a run",
   "Need to go for the run of my life",
   "25/11/2023",
-  "Level 2"
+  "Medium"
 );
 
 const topic3 = new Todo(
   "Connect with people in the job market",
   "Need to get outside my confort zone and start talking to people since the job boards are too saturated",
   "22/12/2023",
-  "Level 1"
+  "High"
 );
+
+const listsContainer = document.createElement("div");
+listsContainer.classList.add("lists-container");
 
 function addDetailsToDom(obj) {
   const listContainer = document.createElement("div");
@@ -65,7 +84,8 @@ function addDetailsToDom(obj) {
   listContainer.appendChild(description);
   listContainer.appendChild(dueDate);
   listContainer.appendChild(priority);
-  content.appendChild(listContainer);
+  listsContainer.appendChild(listContainer);
+  content.appendChild(listsContainer);
 }
 
 console.log(topic);
@@ -76,3 +96,5 @@ addDetailsToDom(topic2);
 
 console.log(topic3);
 addDetailsToDom(topic3);
+
+consoooole.log("jeevy");

@@ -90,3 +90,23 @@ topic.renderTodoList();
 topic2.renderTodoList();
 topic3.renderTodoList();
 topic4.renderTodoList();
+
+// Form
+
+const formContainer = document.createElement("div");
+
+const formHTML = `
+<form action="">
+<label for="title">Title:</label>
+<input type="text" placeholder="Walk the dog">
+
+
+</form>
+
+
+
+`;
+
+formContainer.innerHTML = formHTML;
+
+content.appendChild(formContainer);

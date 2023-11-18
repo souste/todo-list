@@ -1,5 +1,6 @@
 #content {
   display: flex;
+  justify-content: center;
 }
 
 .menu-container {
@@ -7,6 +8,8 @@
   background-color: pink;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
 }
 
 .menu-title {
@@ -18,14 +21,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80vw;
+  width: 60vw;
   background-color: lightblue;
 }
 
 .list-container {
   border: 1px solid black;
   background-color: rgb(228, 221, 221);
-  margin-bottom: 20px;
+  margin: 20px;
   width: 40vw;
   text-align: center;
 }

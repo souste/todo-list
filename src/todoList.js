@@ -1,5 +1,3 @@
-const content = document.querySelector("#content");
-
 const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
 
@@ -40,27 +38,4 @@ class Todo {
   }
 }
 
-const topic = new Todo(
-  "Coding Project",
-  "Need to have it complete by the end of next week",
-  "27/11/2023",
-  "High"
-);
-
-const topic2 = new Todo(
-  "Going for a run",
-  "Need to go for the run of my life",
-  "25/11/2023",
-  "Medium"
-);
-
-const topic3 = new Todo(
-  "Connect with people in the job market",
-  "Need to get outside my confort zone and start talking to people since the job boards are too saturated",
-  "22/12/2023",
-  "High"
-);
-
-topic.renderTodoList();
-topic2.renderTodoList();
-topic3.renderTodoList();
+export default Todo;

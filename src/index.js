@@ -10,10 +10,10 @@ const menuHTML = `
 <p class="menu-title">Home</p>
 <p>Today</p>
 <p>This Week</p>
-<p class="menu-title">Projects</p>
-<p>Get a Job</p>
-<p>Odin Project</p>
-<p>Fitness</p>
+<p class="menu-title">My Projects</p>
+<p>Get a  - hardcoded</p>
+<p>Odin Project - hard coded</p>
+<p>Fitness - hardcoded</p>
 
 <button class="new-list-button">New</button>
 `;
@@ -81,6 +81,10 @@ addListButton.addEventListener("click", (event) => {
   );
   listx.renderTodoList();
   formContainer.style.display = "none";
+  title.value = "";
+  description.value = "";
+  dueDate.value = "";
+  priority.value = "";
 });
 
 // Dummy Lists. Can eventually be removed

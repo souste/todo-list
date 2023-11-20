@@ -21,7 +21,8 @@
 
 /* FORM CONTAINER */
 
-.form-container {
+.form-container,
+.project-form-container {
   border: 1px solid black;
   background-color: lightgoldenrodyellow;
   display: flex;

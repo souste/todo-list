@@ -3,19 +3,23 @@ import Todo from "./todoList.js";
 
 const content = document.querySelector("#content");
 
-// Menu Container
+// MENU CONTAINER
 
 const menuContainer = document.createElement("div");
 const menuHTML = `
+<button class="new-list-button">New</button>
+
 <p class="menu-title">Home</p>
 <p>Today</p>
 <p>This Week</p>
 <p class="menu-title">My Projects</p>
-<p>Get a  - hardcoded</p>
+<button class="new-project-button">New Project</button>
+
+<p>Get a Job  - hardcoded</p>
 <p>Odin Project - hard coded</p>
 <p>Fitness - hardcoded</p>
 
-<button class="new-list-button">New</button>
+
 `;
 
 menuContainer.innerHTML = menuHTML;
@@ -27,6 +31,13 @@ const newListButton = document.querySelector(".new-list-button");
 newListButton.addEventListener("click", (event) => {
   event.preventDefault();
   formContainer.style.display = "flex";
+});
+
+const newProjectButton = document.querySelector(".new-project-button");
+
+newProjectButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  projectFormContainer.style.display = "flex";
 });
 
 // ADD LIST FORM
@@ -87,7 +98,40 @@ addListButton.addEventListener("click", (event) => {
   priority.value = "";
 });
 
-// Dummy Lists. Can eventually be removed
+// ADD PROJECT FORM
+
+const projectFormContainer = document.createElement("div");
+projectFormContainer.classList.add("project-form-container");
+
+const projectFormHTML = `
+<form action="">
+
+<div>
+<label for="name">Name:</label>
+<input type="text" placeholder="Get a Job" id="name" name="name">
+</div>
+
+<button class="add-project-button">Add</button>
+</form>
+`;
+
+projectFormContainer.innerHTML = projectFormHTML;
+
+content.appendChild(projectFormContainer);
+projectFormContainer.style.display = "none";
+
+const addProjectButton = document.querySelector(".add-project-button");
+
+addProjectButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const projectNameInput = document.querySelector("#name");
+
+  const newProject = document.createElement("p");
+  newProject.innerText = projectNameInput.value;
+  menuContainer.appendChild(newProject);
+});
+
+// DUMMY LIST - CAN EVENTUALLY BE REMOVED
 
 const topic = new Todo(
   "Coding Project",

@@ -79,17 +79,9 @@ const topic3 = new Todo(
   "High"
 );
 
-const topic4 = new Todo(
-  "Plan for next year",
-  "Might need to re-align my expectations in this current job market",
-  "22/12/2023",
-  "High"
-);
-
 topic.renderTodoList();
 topic2.renderTodoList();
 topic3.renderTodoList();
-topic4.renderTodoList();
 
 // Form
 
@@ -120,15 +112,25 @@ const formHTML = `
 <input type="text" placeholder="Need a dropdown here" id="priority" name="priority">
 </div>
 
-<button>Add</button>
+<button class="add-list-button">Add</button>
 
 
 </form>
-
-
-
 `;
 
 formContainer.innerHTML = formHTML;
 
 content.appendChild(formContainer);
+
+const addListButton = document.querySelector(".add-list-button");
+
+addListButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const listx = new Todo(
+    title.value,
+    description.value,
+    dueDate.value,
+    priority.value
+  );
+  listx.renderTodoList();
+});

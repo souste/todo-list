@@ -5,6 +5,8 @@ const content = document.querySelector("#content");
 const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
 
+// MENU CONTAINER
+
 const menuContainer = document.createElement("div");
 const menuHTML = `
 <p class="menu-title">Home</p>
@@ -14,12 +16,25 @@ const menuHTML = `
 <p>Get a Job</p>
 <p>Odin Project</p>
 <p>Fitness</p>
+
+<button class="new-list-button">New</button>
+
+
 `;
 
 menuContainer.innerHTML = menuHTML;
 
 menuContainer.classList.add("menu-container");
 content.appendChild(menuContainer);
+
+const newListButton = document.querySelector(".new-list-button");
+
+newListButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  formContainer.style.display = "flex";
+});
+
+// TO DO LIST CONTAINER
 
 class Todo {
   constructor(title, description, dueDate, priority) {
@@ -83,7 +98,7 @@ topic.renderTodoList();
 topic2.renderTodoList();
 topic3.renderTodoList();
 
-// Form
+// ADD LIST FORM
 
 const formContainer = document.createElement("div");
 formContainer.classList.add("form-container");
@@ -121,6 +136,7 @@ const formHTML = `
 formContainer.innerHTML = formHTML;
 
 content.appendChild(formContainer);
+formContainer.style.display = "none";
 
 const addListButton = document.querySelector(".add-list-button");
 
@@ -133,4 +149,5 @@ addListButton.addEventListener("click", (event) => {
     priority.value
   );
   listx.renderTodoList();
+  formContainer.style.display = "none";
 });

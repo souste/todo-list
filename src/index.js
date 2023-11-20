@@ -129,6 +129,8 @@ addProjectButton.addEventListener("click", (event) => {
   const newProject = document.createElement("p");
   newProject.innerText = projectNameInput.value;
   menuContainer.appendChild(newProject);
+
+  projectFormContainer.style.display = "none";
 });
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED

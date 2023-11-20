@@ -94,11 +94,33 @@ topic4.renderTodoList();
 // Form
 
 const formContainer = document.createElement("div");
+formContainer.classList.add("form-container");
 
 const formHTML = `
 <form action="">
+  
+  
+<div>
 <label for="title">Title:</label>
-<input type="text" placeholder="Walk the dog">
+<input type="text" placeholder="Walk the dog" id="title" name="title">
+</div>
+
+<div>
+<label for="description">Description:</label>
+<input type="text" placeholder="Description here" id="description" name="description">
+</div>
+
+<div>
+<label for="dueDate">Due Date:</label>
+<input type="text" placeholder="Need to download that plugin!" id="dueDate" name="dueDate">
+</div>
+
+<div>
+<label for="priority">Priority:</label>
+<input type="text" placeholder="Need a dropdown here" id="priority" name="priority">
+</div>
+
+<button>Add</button>
 
 
 </form>

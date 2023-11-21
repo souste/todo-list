@@ -91,6 +91,7 @@ class Todo {
       newNote.innerText = notesInput.value;
       openListContainer.appendChild(newNote);
       notesInput.value = "";
+      //   openListContainer.style.display = "none";
     });
   }
 }

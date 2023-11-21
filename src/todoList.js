@@ -72,6 +72,9 @@ class Todo {
     const notesButton = document.createElement("button");
     notesButton.innerText = "Add";
 
+    const deleteListButton = document.createElement("button");
+    deleteListButton.innerText = "Delete";
+
     notes.appendChild(notesLabel);
     notes.appendChild(notesInput);
     notes.appendChild(notesButton);
@@ -81,6 +84,7 @@ class Todo {
     openListContainer.appendChild(dueDate);
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
+    openListContainer.appendChild(deleteListButton);
     content.appendChild(openListContainer);
 
     notesButton.addEventListener("click", (event) => {
@@ -93,6 +97,17 @@ class Todo {
       notesInput.value = "";
       //   openListContainer.style.display = "none";
     });
+
+    deleteListButton.addEventListener("click", () => {
+      this.deleteTodoList();
+    });
+  }
+
+  deleteTodoList() {
+    const openListContainer = document.querySelector(".open-list-container");
+    const listContainer = document.querySelector(".list-container");
+    openListContainer.remove();
+    listContainer.remove();
   }
 }
 

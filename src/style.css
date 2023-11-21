@@ -38,6 +38,7 @@
   align-items: center;
   width: 60vw;
   background-color: lightblue;
+  cursor: pointer;
 }
 
 .list-container {

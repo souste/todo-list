@@ -35,6 +35,14 @@ class Todo {
     listContainer.appendChild(priority);
     listsContainer.appendChild(listContainer);
     content.appendChild(listsContainer);
+
+    listContainer.addEventListener("click", () => {
+      this.openTodoList();
+    });
+  }
+
+  openTodoList() {
+    console.log(`Opening detialed view for ${this.title}`);
   }
 }
 

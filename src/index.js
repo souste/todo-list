@@ -98,6 +98,8 @@ addListButton.addEventListener("click", (event) => {
   priority.value = "";
 });
 
+// OPEN TODO LIST
+
 // ADD PROJECT FORM
 
 const projectFormContainer = document.createElement("div");

@@ -2,11 +2,12 @@ const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
 
 class Todo {
-  constructor(title, description, dueDate, priority) {
+  constructor(title, description, dueDate, priority, notes) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.notes = notes;
   }
 
   renderTodoList() {
@@ -15,11 +16,11 @@ class Todo {
 
     const title = document.createElement("p");
     title.classList.add("list-title");
-    title.innerText = `Title: ${this.title}`;
+    title.innerText = `${this.title}`;
 
     const description = document.createElement("p");
     description.classList.add("list-description");
-    description.innerText = `Description: ${this.description}`;
+    description.innerText = `${this.description}`;
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("list-due-date");
@@ -42,7 +43,38 @@ class Todo {
   }
 
   openTodoList() {
-    console.log(`Opening detialed view for ${this.title}`);
+    const openListContainer = document.createElement("div");
+    openListContainer.classList.add("open-list-container");
+
+    const title = document.createElement("p");
+    title.classList.add("open-list-title");
+    title.innerText = `Title: ${this.title}`;
+
+    const description = document.createElement("p");
+    description.classList.add("open-list-description");
+    description.innerText = `Description: ${this.description}`;
+
+    const dueDate = document.createElement("p");
+    dueDate.classList.add("open-list-due-date");
+    dueDate.innerText = `Due Date: ${this.dueDate}`;
+
+    const priority = document.createElement("p");
+    priority.classList.add("open-list-priority");
+    priority.innerText = `Priority: ${this.priority}`;
+
+    const notes = document.createElement("div");
+    const notesLabel = document.createElement("label");
+    notesLabel.innerText = "Notes";
+    const notesInput = document.createElement("input");
+    notes.appendChild(notesLabel);
+    notes.appendChild(notesInput);
+
+    openListContainer.appendChild(title);
+    openListContainer.appendChild(description);
+    openListContainer.appendChild(dueDate);
+    openListContainer.appendChild(priority);
+    openListContainer.appendChild(notes);
+    content.appendChild(openListContainer);
   }
 }
 

@@ -53,3 +53,10 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+/* // OPEN LIST CONTAINER */
+
+.open-list-container {
+  border: 1px solid black;
+  background-color: lightgreen;
+}

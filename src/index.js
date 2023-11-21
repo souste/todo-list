@@ -88,7 +88,8 @@ addListButton.addEventListener("click", (event) => {
     title.value,
     description.value,
     dueDate.value,
-    priority.value
+    priority.value,
+    notes.value
   );
   listx.renderTodoList();
   formContainer.style.display = "none";

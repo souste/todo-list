@@ -62,12 +62,19 @@ class Todo {
     priority.classList.add("open-list-priority");
     priority.innerText = `Priority: ${this.priority}`;
 
-    const notes = document.createElement("div");
+    const notes = document.createElement("form");
     const notesLabel = document.createElement("label");
     notesLabel.innerText = "Notes";
     const notesInput = document.createElement("input");
+    notesInput.type = "text";
+    notesInput.id = "notes";
+    notesInput.name = "notes";
+    const notesButton = document.createElement("button");
+    notesButton.innerText = "Add";
+
     notes.appendChild(notesLabel);
     notes.appendChild(notesInput);
+    notes.appendChild(notesButton);
 
     openListContainer.appendChild(title);
     openListContainer.appendChild(description);
@@ -75,6 +82,16 @@ class Todo {
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
     content.appendChild(openListContainer);
+
+    notesButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const notesInput = document.querySelector("#notes");
+
+      const newNote = document.createElement("p");
+      newNote.innerText = notesInput.value;
+      openListContainer.appendChild(newNote);
+      notesInput.value = "";
+    });
   }
 }
 

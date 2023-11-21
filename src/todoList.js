@@ -106,8 +106,11 @@ class Todo {
   deleteTodoList() {
     const openListContainer = document.querySelector(".open-list-container");
     const listContainer = document.querySelector(".list-container");
-    openListContainer.remove();
-    listContainer.remove();
+
+    if (confirm("Are you sure") === true) {
+      openListContainer.remove();
+      listContainer.remove();
+    }
   }
 }
 

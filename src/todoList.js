@@ -1,3 +1,5 @@
+import "./style.css";
+
 const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
 
@@ -111,6 +113,13 @@ class Todo {
       openListContainer.remove();
       listContainer.remove();
     }
+  }
+
+  projectFilter() {
+    const projectSelect = document.querySelector(".project-select");
+    projectSelect.addEventListener("click", () => {
+      console.log("I'm a little Jeevy");
+    });
   }
 }
 

@@ -7,13 +7,16 @@ const content = document.querySelector("#content");
 
 const menuContainer = document.createElement("div");
 const menuHTML = `
-<button class="new-list-button">New</button>
+<button class="new-list-button">New List</button>
 
 <p class="menu-title">Home</p>
 <p>Today</p>
 <p>This Week</p>
+
+<div class="title-button-container">
 <p class="menu-title">My Projects</p>
-<button class="new-project-button">New Project</button>
+<button class="new-project-button">+</button>
+</div>
 
 <p>Get a Job  - hardcoded</p>
 <p>Odin Project - hard coded</p>
@@ -82,7 +85,9 @@ formContainer.style.display = "none";
 
 const addListButton = document.querySelector(".add-list-button");
 
-addListButton.addEventListener("click", (event) => {
+addListButton.addEventListener("click", addList);
+
+function addList(event) {
   event.preventDefault();
   const listx = new Todo(
     title.value,
@@ -96,9 +101,7 @@ addListButton.addEventListener("click", (event) => {
   description.value = "";
   dueDate.value = "";
   priority.value = "";
-});
-
-// OPEN TODO LIST
+}
 
 // ADD PROJECT FORM
 
@@ -129,10 +132,18 @@ addProjectButton.addEventListener("click", (event) => {
   const projectNameInput = document.querySelector("#name");
 
   const newProject = document.createElement("p");
+
   newProject.innerText = projectNameInput.value;
+  newProject.classList.add("project-select");
+  newProject.id = `${projectNameInput.value}`;
+
   menuContainer.appendChild(newProject);
 
   projectFormContainer.style.display = "none";
+
+  newProject.addEventListener("click", () => {
+    console.log("I'm a little Jeevy");
+  });
 });
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED

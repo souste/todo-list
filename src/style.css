@@ -19,6 +19,17 @@
   font-size: 20px;
 }
 
+.title-button-container {
+  display: flex;
+}
+
+/* // PROJECT LIST */
+
+.project-select {
+  cursor: pointer;
+  color: purple;
+}
+
 /* FORM CONTAINER */
 
 .form-container,

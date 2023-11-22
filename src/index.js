@@ -1,5 +1,6 @@
 import "./style.css";
 import Todo from "./todoList.js";
+import filterByProject from "./project.js";
 
 const content = document.querySelector("#content");
 
@@ -93,7 +94,8 @@ function addList(event) {
     title.value,
     description.value,
     dueDate.value,
-    priority.value
+    priority.value,
+    projectID ? `projectNameInput.value` : null
   );
   listx.renderTodoList();
   formContainer.style.display = "none";
@@ -141,9 +143,7 @@ addProjectButton.addEventListener("click", (event) => {
 
   projectFormContainer.style.display = "none";
 
-  newProject.addEventListener("click", () => {
-    console.log("I'm a little Jeevy");
-  });
+  newProject.addEventListener("click", filterByProject);
 });
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED

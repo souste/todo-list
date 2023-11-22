@@ -94,8 +94,7 @@ function addList(event) {
     title.value,
     description.value,
     dueDate.value,
-    priority.value,
-    projectID ? `projectNameInput.value` : null
+    priority.value
   );
   listx.renderTodoList();
   formContainer.style.display = "none";
@@ -143,7 +142,7 @@ addProjectButton.addEventListener("click", (event) => {
 
   projectFormContainer.style.display = "none";
 
-  newProject.addEventListener("click", filterByProject);
+  newProject.addEventListener("click", filterByProject(projectNameInput.value));
 });
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED

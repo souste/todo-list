@@ -41,6 +41,7 @@ class Todo {
 
     listContainer.addEventListener("click", () => {
       this.openTodoList();
+      formContainer.style.display = "flex";
     });
   }
 

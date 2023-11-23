@@ -115,13 +115,6 @@ class Todo {
       listContainer.remove();
     }
   }
-
-  projectFilter() {
-    const projectSelect = document.querySelector(".project-select");
-    projectSelect.addEventListener("click", () => {
-      console.log("I'm a little Jeevy");
-    });
-  }
 }
 
 export default Todo;

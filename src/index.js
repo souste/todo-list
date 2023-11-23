@@ -1,6 +1,6 @@
 import "./style.css";
 import Todo from "./todoList.js";
-import filterByProject from "./project.js";
+import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
 
@@ -142,7 +142,7 @@ addProjectButton.addEventListener("click", (event) => {
 
   projectFormContainer.style.display = "none";
 
-  newProject.addEventListener("click", filterByProject(projectNameInput.value));
+  newProject.addEventListener("click", projectPage(projectNameInput.value));
 });
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED

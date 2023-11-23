@@ -3,13 +3,16 @@ import "./style.css";
 const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
 
+const todosArr = [];
+
 class Todo {
-  constructor(title, description, dueDate, priority, notes) {
+  constructor(title, description, dueDate, priority, notes, projectName) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
+    this.projectName = projectName;
   }
 
   renderTodoList() {
@@ -43,6 +46,8 @@ class Todo {
       this.openTodoList();
       formContainer.style.display = "flex";
     });
+
+    todosArr.push(this);
   }
 
   openTodoList() {
@@ -117,4 +122,4 @@ class Todo {
   }
 }
 
-export default Todo;
+export { Todo, todosArr };

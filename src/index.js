@@ -1,5 +1,5 @@
 import "./style.css";
-import Todo from "./todoList.js";
+import { Todo, todosArr } from "./todoList.js";
 import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
@@ -88,13 +88,17 @@ const addListButton = document.querySelector(".add-list-button");
 
 addListButton.addEventListener("click", addList);
 
+let currentProject = "";
+
 function addList(event) {
   event.preventDefault();
   const listx = new Todo(
     title.value,
     description.value,
     dueDate.value,
-    priority.value
+    priority.value,
+    "",
+    currentProject
   );
   listx.renderTodoList();
   formContainer.style.display = "none";
@@ -102,6 +106,7 @@ function addList(event) {
   description.value = "";
   dueDate.value = "";
   priority.value = "";
+  console.log(todosArr);
 }
 
 // ADD PROJECT FORM
@@ -131,6 +136,7 @@ const addProjectButton = document.querySelector(".add-project-button");
 addProjectButton.addEventListener("click", (event) => {
   event.preventDefault();
   const projectNameInput = document.querySelector("#name");
+  currentProject = projectNameInput.value;
 
   const newProject = document.createElement("p");
 

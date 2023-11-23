@@ -1,61 +1,35 @@
-import Todo from "./todoList.js";
 import "./index.js";
+import { Todo, todosArr } from "./todoList.js";
+
+const content = document.querySelector("#content");
 
 function projectPage(projectName) {
+  const projectPageContainer = document.createElement("div");
+  projectPageContainer.classList.add(".project-page-container");
+
+  const projectHeader = document.createElement("h1");
+  projectHeader.innerText = projectName;
+
   const listsContainer = document.querySelector(".lists-container");
   const projectListButton = document.createElement("button");
   projectListButton.innerText = "Add";
   const formContainer = document.querySelector(".form-container");
-  console.log(projectName);
-  // Need to turn this into a filter since it might mess up the local storage but OK for now:
-  listsContainer.innerText = "";
 
-  const projectHeader = document.createElement("h1");
-  projectHeader.innerText = projectName;
-  listsContainer.appendChild(projectHeader);
-  listsContainer.appendChild(projectListButton);
+  projectPageContainer.appendChild(projectHeader);
+  projectPageContainer.appendChild(projectListButton);
+  projectPageContainer.appendChild(listsContainer);
+
+  content.appendChild(projectPageContainer);
 
   projectListButton.addEventListener("click", (event) => {
     event.preventDefault();
     formContainer.style.display = "flex";
   });
+
+  const projectTodos = todosArr.filter(
+    (todo) => todo.projectName === projectName
+  );
+  projectTodos.forEach((todo) => todo.renderTodoList());
 }
-
-// const projectHeader = document.createElement("h1");
-//   projectHeader.innerText = projectName;
-
-//   const newListByProjectButton = document.createElement("button");
-//   newListByProjectButton.innerText = "Add";
-
-//   const listsContainer = document.querySelector(".lists-container");
-//   listsContainer.style.display = "none";
-//   projectListsContainer.innerText = "";
-
-//   const formContainer = document.querySelector(".form-container");
-
-//   newListByProjectButton.addEventListener("click", addProjectList);
-
-//   function addProjectList(event) {
-//     event.preventDefault();
-//     formContainer.style.display = "flex";
-
-//     const listx = new Todo(
-//       title.value,
-//       description.value,
-//       dueDate.value,
-//       priority.value
-//     );
-//     listx.renderTodoList();
-//     formContainer.style.display = "none";
-//     title.value = "";
-//     description.value = "";
-//     dueDate.value = "";
-//     priority.value = "";
-//     console.log(listx);
-//   }
-
-//   projectListsContainer.appendChild(projectHeader);
-//   projectListsContainer.appendChild(newListByProjectButton);
-//   content.appendChild(projectListsContainer);
 
 export default projectPage;

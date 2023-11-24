@@ -4,7 +4,7 @@ import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
 
-// LOCAL STORAGE
+// LOCAL STORAGE - Get from Local Storage
 
 window.addEventListener("load", () => {
   const storedTodos = JSON.parse(localStorage.getItem("myTodoList"));
@@ -25,6 +25,8 @@ window.addEventListener("load", () => {
     });
   }
 });
+
+console.log(todosArr);
 
 // MENU CONTAINER
 
@@ -128,7 +130,7 @@ function addList(event) {
   document.querySelector("form").reset();
   console.log(todosArr);
 
-  // Save to localStorage - GOT ISSUES WITH THIS!!!
+  // Save to localStorage
   localStorage.setItem("myTodoList", JSON.stringify(todosArr));
   console.log(localStorage.getItem("myTodoList"));
 }
@@ -198,6 +200,6 @@ addProjectButton.addEventListener("click", (event) => {
 //   "High"
 // );
 
-topic.renderTodoList();
-topic2.renderTodoList();
-topic3.renderTodoList();
+// topic.renderTodoList();
+// topic2.renderTodoList();
+// topic3.renderTodoList();

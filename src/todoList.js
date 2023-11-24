@@ -46,8 +46,6 @@ class Todo {
       this.openTodoList();
       formContainer.style.display = "flex";
     });
-
-    todosArr.push(this);
   }
 
   openTodoList() {

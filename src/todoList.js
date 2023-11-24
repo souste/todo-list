@@ -58,11 +58,11 @@ class Todo {
 
     const title = document.createElement("p");
     title.classList.add("open-list-title");
-    title.innerText = `Title: ${this.title}`;
+    title.innerText = `${this.title}`;
 
     const description = document.createElement("p");
     description.classList.add("open-list-description");
-    description.innerText = `Description: ${this.description}`;
+    description.innerText = `${this.description}`;
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("open-list-due-date");

@@ -1,4 +1,5 @@
 import "./style.css";
+import "./project.js";
 
 const listsContainer = document.createElement("div");
 listsContainer.classList.add("lists-container");
@@ -44,8 +45,10 @@ class Todo {
 
     listContainer.addEventListener("click", () => {
       this.openTodoList();
-      formContainer.style.display = "flex";
+      //   formContainer.style.display = "flex";
     });
+
+    // todosArr.push(this);
   }
 
   openTodoList() {
@@ -81,6 +84,14 @@ class Todo {
     const deleteListButton = document.createElement("button");
     deleteListButton.innerText = "Delete";
 
+    const closeListButton = document.createElement("button");
+    closeListButton.innerText = "Close";
+
+    closeListButton.addEventListener("click", () => {
+      const formContainer = document.querySelector(".form-container");
+      formContainer.style.display = "none";
+    });
+
     notes.appendChild(notesLabel);
     notes.appendChild(notesInput);
     notes.appendChild(notesButton);
@@ -91,6 +102,7 @@ class Todo {
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
     openListContainer.appendChild(deleteListButton);
+    openListContainer.appendChild(closeListButton);
     content.appendChild(openListContainer);
 
     notesButton.addEventListener("click", (event) => {
@@ -117,6 +129,7 @@ class Todo {
       openListContainer.remove();
       listContainer.remove();
     }
+    console.log("this one", todosArr);
   }
 }
 

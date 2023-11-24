@@ -32,7 +32,9 @@ console.log(todosArr);
 
 const menuContainer = document.createElement("div");
 const menuHTML = `
-<button class="new-list-button">New List</button>
+
+<h1 class="top-menu-title">YOUR TODOS</h1>
+
 
 <p class="menu-title">Home</p>
 <p>Today</p>
@@ -48,6 +50,9 @@ const menuHTML = `
 <p>Fitness - hardcoded</p>
 
 
+<button class="new-list-button">+</button>
+
+
 `;
 
 menuContainer.innerHTML = menuHTML;
@@ -55,6 +60,7 @@ menuContainer.classList.add("menu-container");
 content.appendChild(menuContainer);
 
 const newListButton = document.querySelector(".new-list-button");
+newListButton.classList.add("new-list-button");
 
 newListButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -62,6 +68,7 @@ newListButton.addEventListener("click", (event) => {
 });
 
 const newProjectButton = document.querySelector(".new-project-button");
+newProjectButton.classList.add("new-project-button");
 
 newProjectButton.addEventListener("click", (event) => {
   event.preventDefault();

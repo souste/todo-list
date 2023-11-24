@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./Rajdhani-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "Rajdhani", sans-serif;
+}
+
 #content {
   display: flex;
   justify-content: center;
@@ -10,8 +21,13 @@
   background-color: pink;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   padding-left: 20px;
+}
+
+.top-menu-title {
+  font-size: 50px;
+  color: white;
 }
 
 .menu-title {
@@ -26,6 +42,28 @@
 .project-select {
   cursor: pointer;
   color: purple;
+}
+
+.new-list-button,
+.new-project-button {
+  width: 3rem;
+  height: 2.7rem;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-list-button {
+  font-size: 70px;
+  border: none;
+  background-color: pink;
+  margin-left: 55px;
+}
+
+.new-list-button:hover {
+  color: black;
 }
 
 /* // PROJECT CONTAINER */
@@ -47,7 +85,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60vw;
+  width: 85vw;
   background-color: lightblue;
   cursor: pointer;
 }

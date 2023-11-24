@@ -5,14 +5,17 @@ const content = document.querySelector("#content");
 
 function projectPage(projectName) {
   const projectPageContainer = document.createElement("div");
-  projectPageContainer.classList.add(".project-page-container");
+  projectPageContainer.classList.add("project-page-container");
 
   const projectHeader = document.createElement("h1");
+  projectHeader.classList.add("project-header");
   projectHeader.innerText = projectName;
 
   const listsContainer = document.querySelector(".lists-container");
   const projectListButton = document.createElement("button");
+  projectListButton.classList.add("project-list-button");
   projectListButton.innerText = "Add";
+
   const formContainer = document.querySelector(".form-container");
 
   projectPageContainer.appendChild(projectHeader);

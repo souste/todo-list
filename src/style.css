@@ -167,6 +167,12 @@ input {
 
 /* // PROJECT LIST CONTAINER */
 
-.project-page-container {
-  background-color: blue;
+.project-header {
+  text-align: center;
+}
+
+.project-list-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

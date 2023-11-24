@@ -27,6 +27,7 @@ class Todo {
     const description = document.createElement("p");
     description.classList.add("list-description");
     description.innerText = `${this.description}`;
+    description.style.display = "none"; // FIGURE OUT THIS BUT AFTER
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("list-due-date");

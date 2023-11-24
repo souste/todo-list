@@ -82,24 +82,24 @@ formContainer.classList.add("form-container");
 
 const formHTML = `
 <form action="">
+  <p class="form-header">Create Todo Item</p>
   
-  
-<div>
+<div class="label-input-container">
 <label for="title">Title:</label>
 <input type="text" placeholder="Walk the dog" id="title" name="title">
 </div>
 
-<div>
+<div class="label-input-container">
 <label for="description">Description:</label>
 <input type="text" placeholder="Description here" id="description" name="description">
 </div>
 
-<div>
+<div class="label-input-container">
 <label for="dueDate">Due Date:</label>
 <input type="text" placeholder="Need to download that plugin!" id="dueDate" name="dueDate">
 </div>
 
-<div>
+<div class="label-input-container">
 <label for="priority">Priority:</label>
 <input type="text" placeholder="Need a dropdown here" id="priority" name="priority">
 </div>
@@ -149,7 +149,7 @@ projectFormContainer.classList.add("project-form-container");
 
 const projectFormHTML = `
 <form action="">
-
+<p class="form-header">Create New Project</p>
 <div>
 <label for="name">Name:</label>
 <input type="text" placeholder="Get a Job" id="name" name="name">

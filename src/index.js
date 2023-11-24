@@ -4,6 +4,28 @@ import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
 
+// LOCAL STORAGE
+
+window.addEventListener("load", () => {
+  const storedTodos = JSON.parse(localStorage.getItem("myTodoList"));
+
+  if (storedTodos) {
+    todosArr.push(...storedTodos);
+
+    storedTodos.forEach((todoData) => {
+      const loadedTodo = new Todo(
+        todoData.title,
+        todoData.description,
+        todoData.dueDate,
+        todoData.priority,
+        "",
+        todoData.project
+      );
+      loadedTodo.renderTodoList();
+    });
+  }
+});
+
 // MENU CONTAINER
 
 const menuContainer = document.createElement("div");
@@ -101,12 +123,14 @@ function addList(event) {
     currentProject
   );
   listx.renderTodoList();
+  todosArr.push(listx);
   formContainer.style.display = "none";
-  title.value = "";
-  description.value = "";
-  dueDate.value = "";
-  priority.value = "";
+  document.querySelector("form").reset();
   console.log(todosArr);
+
+  // Save to localStorage - GOT ISSUES WITH THIS!!!
+  localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+  console.log(localStorage.getItem("myTodoList"));
 }
 
 // ADD PROJECT FORM
@@ -153,26 +177,26 @@ addProjectButton.addEventListener("click", (event) => {
 
 // DUMMY LIST - CAN EVENTUALLY BE REMOVED
 
-const topic = new Todo(
-  "Coding Project",
-  "Need to have it complete by the end of next week",
-  "27/11/2023",
-  "High"
-);
+// const topic = new Todo(
+//   "Coding Project",
+//   "Need to have it complete by the end of next week",
+//   "27/11/2023",
+//   "High"
+// );
 
-const topic2 = new Todo(
-  "Going for a run",
-  "Need to go for the run of my life",
-  "25/11/2023",
-  "Medium"
-);
+// const topic2 = new Todo(
+//   "Going for a run",
+//   "Need to go for the run of my life",
+//   "25/11/2023",
+//   "Medium"
+// );
 
-const topic3 = new Todo(
-  "Connect with people in the job market",
-  "Need to get outside my confort zone and start talking to people since the job boards are too saturated",
-  "22/12/2023",
-  "High"
-);
+// const topic3 = new Todo(
+//   "Connect with people in the job market",
+//   "Need to get outside my confort zone and start talking to people since the job boards are too saturated",
+//   "22/12/2023",
+//   "High"
+// );
 
 topic.renderTodoList();
 topic2.renderTodoList();

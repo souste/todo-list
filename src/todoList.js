@@ -129,8 +129,16 @@ class Todo {
     if (confirm("Are you sure") === true) {
       openListContainer.remove();
       listContainer.remove();
+
+      const indexToRemove = todosArr.findIndex(
+        (todo) => todo.title === this.title
+      );
+      if (indexToRemove !== -1) {
+        todosArr.splice(indexToRemove, 1);
+
+        localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+      }
     }
-    console.log("this one", todosArr);
   }
 }
 

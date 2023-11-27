@@ -14,6 +14,9 @@ class Todo {
     this.priority = priority;
     this.notes = notes;
     this.projectName = projectName;
+
+    this.listContainer = null;
+    this.openListContainer = null;
   }
 
   renderTodoList() {
@@ -45,11 +48,8 @@ class Todo {
     content.appendChild(listsContainer);
 
     listContainer.addEventListener("click", () => {
-      this.openTodoList();
-      //   formContainer.style.display = "flex";
+      this.openTodoList(listContainer);
     });
-
-    // todosArr.push(this);
   }
 
   openTodoList() {
@@ -114,7 +114,6 @@ class Todo {
       newNote.innerText = notesInput.value;
       openListContainer.appendChild(newNote);
       notesInput.value = "";
-      //   openListContainer.style.display = "none";
     });
 
     deleteListButton.addEventListener("click", () => {
@@ -123,12 +122,19 @@ class Todo {
   }
 
   deleteTodoList() {
-    const openListContainer = document.querySelector(".open-list-container");
-    const listContainer = document.querySelector(".list-container");
+    const openListContainers = document.querySelectorAll(
+      ".open-list-container"
+    );
+    const listContainers = document.querySelectorAll(".list-container");
 
     if (confirm("Are you sure") === true) {
-      openListContainer.remove();
-      listContainer.remove();
+      openListContainers.forEach((openListContainer) => {
+        openListContainer.remove();
+      });
+
+      listContainers.forEach((listContainer) => {
+        listContainer.remove();
+      });
 
       const indexToRemove = todosArr.findIndex(
         (todo) => todo.title === this.title
@@ -137,6 +143,7 @@ class Todo {
         todosArr.splice(indexToRemove, 1);
 
         localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+        location.reload();
       }
     }
   }

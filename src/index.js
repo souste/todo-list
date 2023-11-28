@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
         todoData.description,
         todoData.dueDate,
         todoData.priority,
-        "",
+        todoData.notes,
         todoData.project
       );
       loadedTodo.renderTodoList();

@@ -3,8 +3,19 @@ import { Todo, todosArr } from "./todoList.js";
 import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
+const menuContainer = document.createElement("div");
+const formContainer = document.createElement("div");
+formContainer.classList.add("form-container");
+const projectFormContainer = document.createElement("div");
+projectFormContainer.classList.add("project-form-container");
+const newListButton = document.querySelector(".new-list-button");
+newListButton.classList.add("new-list-button");
+const addListButton = document.querySelector(".add-list-button");
+const newProjectButton = document.querySelector(".new-project-button");
+newProjectButton.classList.add("new-project-button");
+const addProjectButton = document.querySelector(".add-project-button");
 
-// LOCAL STORAGE - Get from Local Storage
+// LOCAL STORAGE
 
 window.addEventListener("load", () => {
   const storedTodos = JSON.parse(localStorage.getItem("myTodoList"));
@@ -26,11 +37,8 @@ window.addEventListener("load", () => {
   }
 });
 
-console.log(todosArr);
-
 // MENU CONTAINER
 
-const menuContainer = document.createElement("div");
 const menuHTML = `
 
 <h1 class="top-menu-title">LIFE'S TODOS</h1>
@@ -57,26 +65,14 @@ menuContainer.innerHTML = menuHTML;
 menuContainer.classList.add("menu-container");
 content.appendChild(menuContainer);
 
-const newListButton = document.querySelector(".new-list-button");
-newListButton.classList.add("new-list-button");
+// ADD A NEW TODO LIST BUTTON
 
 newListButton.addEventListener("click", (event) => {
   event.preventDefault();
   formContainer.style.display = "flex";
 });
 
-const newProjectButton = document.querySelector(".new-project-button");
-newProjectButton.classList.add("new-project-button");
-
-newProjectButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  projectFormContainer.style.display = "flex";
-});
-
-// ADD LIST FORM
-
-const formContainer = document.createElement("div");
-formContainer.classList.add("form-container");
+// ADD NEW TODO LIST FORM
 
 const formHTML = `
 <form action="">
@@ -113,7 +109,7 @@ formContainer.innerHTML = formHTML;
 content.appendChild(formContainer);
 formContainer.style.display = "none";
 
-const addListButton = document.querySelector(".add-list-button");
+// ADD NEW TODO LIST BUTTON (FROM FORM)
 
 addListButton.addEventListener("click", addList);
 
@@ -140,10 +136,14 @@ function addList(event) {
   console.log(localStorage.getItem("myTodoList"));
 }
 
-// ADD PROJECT FORM
+// ADD A NEW PROJECT TAB BUTTON
 
-const projectFormContainer = document.createElement("div");
-projectFormContainer.classList.add("project-form-container");
+newProjectButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  projectFormContainer.style.display = "flex";
+});
+
+// ADD PROJECT FORM
 
 const projectFormHTML = `
 <form action="">
@@ -162,7 +162,7 @@ projectFormContainer.innerHTML = projectFormHTML;
 content.appendChild(projectFormContainer);
 projectFormContainer.style.display = "none";
 
-const addProjectButton = document.querySelector(".add-project-button");
+// ADD PROJECT BUTTON (FROM FORM)
 
 addProjectButton.addEventListener("click", (event) => {
   event.preventDefault();

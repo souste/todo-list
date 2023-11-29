@@ -2,7 +2,6 @@ import "./index.js";
 import { Todo, todosArr } from "./todoList.js";
 
 const content = document.querySelector("#content");
-const projectArr = [];
 
 function projectPage(projectName) {
   const projectPageContainer = document.createElement("div");

@@ -8,12 +8,6 @@ const formContainer = document.createElement("div");
 formContainer.classList.add("form-container");
 const projectFormContainer = document.createElement("div");
 projectFormContainer.classList.add("project-form-container");
-const newListButton = document.querySelector(".new-list-button");
-newListButton.classList.add("new-list-button");
-const addListButton = document.querySelector(".add-list-button");
-const newProjectButton = document.querySelector(".new-project-button");
-newProjectButton.classList.add("new-project-button");
-const addProjectButton = document.querySelector(".add-project-button");
 
 // LOCAL STORAGE
 
@@ -67,6 +61,9 @@ content.appendChild(menuContainer);
 
 // ADD A NEW TODO LIST BUTTON
 
+const newListButton = document.querySelector(".new-list-button");
+newListButton.classList.add("new-list-button");
+
 newListButton.addEventListener("click", (event) => {
   event.preventDefault();
   formContainer.style.display = "flex";
@@ -111,6 +108,8 @@ formContainer.style.display = "none";
 
 // ADD NEW TODO LIST BUTTON (FROM FORM)
 
+const addListButton = document.querySelector(".add-list-button");
+
 addListButton.addEventListener("click", addList);
 
 let currentProject = "";
@@ -136,7 +135,10 @@ function addList(event) {
   console.log(localStorage.getItem("myTodoList"));
 }
 
-// ADD A NEW PROJECT TAB BUTTON
+// ADD A NEW PROJECT BUTTON
+
+const newProjectButton = document.querySelector(".new-project-button");
+newProjectButton.classList.add("new-project-button");
 
 newProjectButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -163,6 +165,8 @@ content.appendChild(projectFormContainer);
 projectFormContainer.style.display = "none";
 
 // ADD PROJECT BUTTON (FROM FORM)
+
+const addProjectButton = document.querySelector(".add-project-button");
 
 addProjectButton.addEventListener("click", (event) => {
   event.preventDefault();

@@ -1,6 +1,6 @@
 import "./style.css";
 import { Todo, todosArr } from "./todoList.js";
-import { Project } from "./project.js";
+import projectPage from "./project.js";
 
 const content = document.querySelector("#content");
 
@@ -51,8 +51,6 @@ const menuHTML = `
 
 
 <button class="new-list-button">+</button>
-
-
 `;
 
 menuContainer.innerHTML = menuHTML;
@@ -181,7 +179,5 @@ addProjectButton.addEventListener("click", (event) => {
 
   projectFormContainer.style.display = "none";
 
-  newProject.addEventListener("click", () => {
-    Project.renderProject(projectNameInput.value);
-  });
+  newProject.addEventListener("click", projectPage(projectNameInput.value));
 });

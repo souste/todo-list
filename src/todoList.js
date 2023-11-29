@@ -14,9 +14,6 @@ class Todo {
     this.priority = priority;
     this.notes = notes;
     this.projectName = projectName;
-
-    this.listContainer = null;
-    this.openListContainer = null;
   }
 
   renderTodoList() {

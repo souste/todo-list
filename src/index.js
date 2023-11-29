@@ -1,6 +1,6 @@
 import "./style.css";
 import { Todo, todosArr } from "./todoList.js";
-import projectPage from "./project.js";
+import { Project } from "./project.js";
 
 const content = document.querySelector("#content");
 
@@ -181,32 +181,7 @@ addProjectButton.addEventListener("click", (event) => {
 
   projectFormContainer.style.display = "none";
 
-  newProject.addEventListener("click", projectPage(projectNameInput.value));
+  newProject.addEventListener("click", () => {
+    Project.renderProject(projectNameInput.value);
+  });
 });
-
-// DUMMY LIST - CAN EVENTUALLY BE REMOVED
-
-// const topic = new Todo(
-//   "Coding Project",
-//   "Need to have it complete by the end of next week",
-//   "27/11/2023",
-//   "High"
-// );
-
-// const topic2 = new Todo(
-//   "Going for a run",
-//   "Need to go for the run of my life",
-//   "25/11/2023",
-//   "Medium"
-// );
-
-// const topic3 = new Todo(
-//   "Connect with people in the job market",
-//   "Need to get outside my confort zone and start talking to people since the job boards are too saturated",
-//   "22/12/2023",
-//   "High"
-// );
-
-// topic.renderTodoList();
-// topic2.renderTodoList();
-// topic3.renderTodoList();

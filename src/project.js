@@ -1,5 +1,5 @@
 import "./index.js";
-import { Todo, todosArr } from "./todoList.js";
+import { todosArr } from "./todoList.js";
 
 const content = document.querySelector("#content");
 

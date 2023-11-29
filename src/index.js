@@ -59,7 +59,7 @@ menuContainer.innerHTML = menuHTML;
 menuContainer.classList.add("menu-container");
 content.appendChild(menuContainer);
 
-// ADD A NEW TODO LIST BUTTON
+// NEW TODO LIST BUTTON
 
 const newListButton = document.querySelector(".new-list-button");
 newListButton.classList.add("new-list-button");
@@ -69,7 +69,7 @@ newListButton.addEventListener("click", (event) => {
   formContainer.style.display = "flex";
 });
 
-// ADD NEW TODO LIST FORM
+// NEW TODO LIST FORM
 
 const formHTML = `
 <form action="">
@@ -106,7 +106,7 @@ formContainer.innerHTML = formHTML;
 content.appendChild(formContainer);
 formContainer.style.display = "none";
 
-// ADD NEW TODO LIST BUTTON (FROM FORM)
+// ADD TODO LIST BUTTON (FROM FORM)
 
 const addListButton = document.querySelector(".add-list-button");
 
@@ -135,7 +135,24 @@ function addList(event) {
   console.log(localStorage.getItem("myTodoList"));
 }
 
-// ADD A NEW PROJECT BUTTON
+// PROJECT CLASS
+
+const projectsArr = [];
+
+class Project {
+  constructor(name) {
+    this.name = name;
+  }
+  renderProject() {
+    const projectName = document.createElement("p");
+    projectName.classList.add("project-name");
+    projectName.innerText = this.name;
+    projectName.id = this.name;
+    menuContainer.appendChild(projectName);
+  }
+}
+
+// NEW PROJECT BUTTON
 
 const newProjectButton = document.querySelector(".new-project-button");
 newProjectButton.classList.add("new-project-button");
@@ -145,7 +162,7 @@ newProjectButton.addEventListener("click", (event) => {
   projectFormContainer.style.display = "flex";
 });
 
-// ADD PROJECT FORM
+// NEW PROJECT FORM
 
 const projectFormHTML = `
 <form action="">
@@ -168,20 +185,19 @@ projectFormContainer.style.display = "none";
 
 const addProjectButton = document.querySelector(".add-project-button");
 
-addProjectButton.addEventListener("click", (event) => {
+addProjectButton.addEventListener("click", addProject);
+
+function addProject(event) {
   event.preventDefault();
   const projectNameInput = document.querySelector("#name");
-  currentProject = projectNameInput.value;
+  const projectx = new Project(projectNameInput.value);
+  projectx.renderProject();
+  projectsArr.push(projectx);
+  document.querySelector("form").reset();
+}
 
-  const newProject = document.createElement("p");
+projectFormContainer.style.display = "none";
 
-  newProject.innerText = projectNameInput.value;
-  newProject.classList.add("project-select");
-  newProject.id = `${projectNameInput.value}`;
+const projectName = document.querySelector(".project-name");
 
-  menuContainer.appendChild(newProject);
-
-  projectFormContainer.style.display = "none";
-
-  newProject.addEventListener("click", projectPage(projectNameInput.value));
-});
+projectName.addEventListener("click", projectPage(projectNameInput.value));

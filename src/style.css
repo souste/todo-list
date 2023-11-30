@@ -70,7 +70,8 @@
 /* FORM CONTAINER */
 
 .form-container,
-.project-form-container {
+.project-form-container,
+.project-todo-form-container {
   border: 1px solid black;
   background-color: rgb(228, 221, 221);
   display: flex;

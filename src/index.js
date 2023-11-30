@@ -132,8 +132,6 @@ const addListButton = document.querySelector(".add-list-button");
 
 addListButton.addEventListener("click", addList);
 
-let currentProject = "";
-
 function addList(event) {
   event.preventDefault();
   const listx = new Todo(
@@ -141,8 +139,7 @@ function addList(event) {
     description.value,
     dueDate.value,
     priority.value,
-    "",
-    currentProject
+    ""
   );
   listx.renderTodoList();
   todosArr.push(listx);

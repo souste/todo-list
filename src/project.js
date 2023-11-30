@@ -2,40 +2,97 @@ import "./index.js";
 import { Todo, todosArr } from "./todoList.js";
 
 const content = document.querySelector("#content");
+const projectPageContainer = document.createElement("div");
+projectPageContainer.classList.add("project-page-container");
+const projectHeader = document.createElement("h1");
+projectHeader.classList.add("project-header");
 
 function projectPage(projectName) {
-  console.log(projectName);
-  // class ProjectTodo extends Todo {
-  //   constructor(title, description, dueDate, priority, notes, projectName) {
-  //     super(title, description, dueDate, priority, notes);
-  //     this.projectName = projectName;
-  //   }
-  // }
+  projectPageContainer.innerHTML = "";
+  projectHeader.innerText = projectName;
 
-  // const projectPageContainer = document.createElement("div");
-  // projectPageContainer.classList.add("project-page-container");
+  const listsContainer = document.querySelector(".lists-container");
+  const projectListButton = document.createElement("button");
+  projectListButton.classList.add("project-list-button");
+  projectListButton.innerText = "Add";
 
-  // const projectHeader = document.createElement("h1");
-  // projectHeader.classList.add("project-header");
-  // projectHeader.innerText = projectName;
+  projectPageContainer.appendChild(projectHeader);
+  projectPageContainer.appendChild(projectListButton);
+  projectPageContainer.appendChild(listsContainer);
+  content.appendChild(projectPageContainer);
 
-  // const listsContainer = document.querySelector(".lists-container");
-  // const projectListButton = document.createElement("button");
-  // projectListButton.classList.add("project-list-button");
-  // projectListButton.innerText = "Add";
+  const projectTodoFormContainer = document.createElement("div");
+  projectTodoFormContainer.classList.add("project-todo-form-container");
+  projectTodoFormContainer.style.display = "none";
 
-  // const formContainer = document.querySelector(".form-container");
+  const projectFormHTML = `
+<form action="">
+  <p class="form-header">Create Project Todo Item</p>
+  
+<div class="label-input-container">
+<label for="projectTitle">Title:</label>
+<input type="text" placeholder="Walk the dog" id="projectTitle" name="projectTitle">
+</div>
 
-  // projectPageContainer.appendChild(projectHeader);
-  // projectPageContainer.appendChild(projectListButton);
-  // projectPageContainer.appendChild(listsContainer);
+<div class="label-input-container">
+<label for="projectDescription">Description:</label>
+<input type="text" placeholder="Description here" id="projectDescription" name="projectDescription">
+</div>
 
-  // content.appendChild(projectPageContainer);
+<div class="label-input-container">
+<label for="projectDueDate">Due Date:</label>
+<input type="text" placeholder="Need to download that plugin!" id="projectDueDate" name="projectDueDate">
+</div>
 
-  // projectListButton.addEventListener("click", (event) => {
-  //   event.preventDefault();
-  //   formContainer.style.display = "flex";
-  // });
+<div class="label-input-container">
+<label for="projectPriority">Priority:</label>
+<input type="text" placeholder="Need a dropdown here" id="projectPriority" name="projectPriority">
+</div>
+
+<button class="add-project-list-button">Add</button>
+
+
+</form>
+`;
+
+  projectTodoFormContainer.innerHTML = projectFormHTML;
+  content.appendChild(projectTodoFormContainer);
+
+  projectListButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    projectTodoFormContainer.style.display = "flex";
+  });
+
+  //////////////////////////////////////////////////////////////////////
+
+  const addProjectListButton = document.querySelector(
+    ".add-project-list-button"
+  );
+
+  addProjectListButton.addEventListener("click", addProjectList);
+
+  function addProjectList(event) {
+    event.preventDefault();
+    const listx = new Todo(
+      projectTitle.value,
+      projectDescription.value,
+      projectDueDate.value,
+      projectPriority.value,
+      "",
+      projectName
+    );
+    listx.renderTodoList();
+    todosArr.push(listx);
+    projectTodoFormContainer.style.display = "none";
+    document.querySelector("form").reset();
+    console.log(todosArr);
+
+    // Save to localStorage
+    localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+    console.log(localStorage.getItem("myTodoList"));
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////
 
   // const projectTodos = todosArr.filter(
   //   (todo) => todo.projectName === projectName

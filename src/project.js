@@ -1,38 +1,46 @@
 import "./index.js";
-import { todosArr } from "./todoList.js";
+import { Todo, todosArr } from "./todoList.js";
 
 const content = document.querySelector("#content");
 
 function projectPage(projectName) {
-  const projectPageContainer = document.createElement("div");
-  projectPageContainer.classList.add("project-page-container");
+  console.log(projectName);
+  // class ProjectTodo extends Todo {
+  //   constructor(title, description, dueDate, priority, notes, projectName) {
+  //     super(title, description, dueDate, priority, notes);
+  //     this.projectName = projectName;
+  //   }
+  // }
 
-  const projectHeader = document.createElement("h1");
-  projectHeader.classList.add("project-header");
-  projectHeader.innerText = projectName;
+  // const projectPageContainer = document.createElement("div");
+  // projectPageContainer.classList.add("project-page-container");
 
-  const listsContainer = document.querySelector(".lists-container");
-  const projectListButton = document.createElement("button");
-  projectListButton.classList.add("project-list-button");
-  projectListButton.innerText = "Add";
+  // const projectHeader = document.createElement("h1");
+  // projectHeader.classList.add("project-header");
+  // projectHeader.innerText = projectName;
 
-  const formContainer = document.querySelector(".form-container");
+  // const listsContainer = document.querySelector(".lists-container");
+  // const projectListButton = document.createElement("button");
+  // projectListButton.classList.add("project-list-button");
+  // projectListButton.innerText = "Add";
 
-  projectPageContainer.appendChild(projectHeader);
-  projectPageContainer.appendChild(projectListButton);
-  projectPageContainer.appendChild(listsContainer);
+  // const formContainer = document.querySelector(".form-container");
 
-  content.appendChild(projectPageContainer);
+  // projectPageContainer.appendChild(projectHeader);
+  // projectPageContainer.appendChild(projectListButton);
+  // projectPageContainer.appendChild(listsContainer);
 
-  projectListButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    formContainer.style.display = "flex";
-  });
+  // content.appendChild(projectPageContainer);
 
-  const projectTodos = todosArr.filter(
-    (todo) => todo.projectName === projectName
-  );
-  projectTodos.forEach((todo) => todo.renderTodoList());
+  // projectListButton.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  //   formContainer.style.display = "flex";
+  // });
+
+  // const projectTodos = todosArr.filter(
+  //   (todo) => todo.projectName === projectName
+  // );
+  // projectTodos.forEach((todo) => todo.renderTodoList());
 }
 
 export default projectPage;

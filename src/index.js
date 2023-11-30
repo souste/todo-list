@@ -46,9 +46,7 @@ window.addEventListener("load", () => {
     });
     projectsArr.forEach((project) => {
       const projectName = document.getElementById(project.name);
-      projectName.addEventListener("click", () => {
-        console.log("I'm a little Jeevy");
-      });
+      projectName.addEventListener("click", () => projectPage(projectName.id));
     });
   }
 });
@@ -216,13 +214,10 @@ function addProject(event) {
   projectx.renderProject();
   projectsArr.push(projectx);
   projectFormContainer.style.display = "none";
-  projectNameInput.value = "";
+  // projectNameInput.value = "";
 
   const projectName = document.getElementById(projectx.name);
-  projectName.addEventListener("click", () => {
-    console.log("I'm a little Jeevy");
-  });
-  // projectNameInput.value
+  projectName.addEventListener("click", () => projectPage(projectName.id));
 
   // Save to localStorage
   localStorage.setItem("myProjects", JSON.stringify(projectsArr));

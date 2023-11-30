@@ -10,6 +10,7 @@ const projectFormContainer = document.createElement("div");
 projectFormContainer.classList.add("project-form-container");
 
 // LOCAL STORAGE
+// Todo List Local Storage
 
 window.addEventListener("load", () => {
   const storedTodos = JSON.parse(localStorage.getItem("myTodoList"));
@@ -27,6 +28,21 @@ window.addEventListener("load", () => {
         todoData.project
       );
       loadedTodo.renderTodoList();
+    });
+  }
+});
+
+// Projects Tab Local Storage
+
+window.addEventListener("load", () => {
+  const storedProjects = JSON.parse(localStorage.getItem("myProjects"));
+
+  if (storedProjects) {
+    projectsArr.push(...storedProjects);
+
+    storedProjects.forEach((projectData) => {
+      const loadedProject = new Project(projectData.name);
+      loadedProject.renderProject();
     });
   }
 });
@@ -128,7 +144,6 @@ function addList(event) {
   todosArr.push(listx);
   formContainer.style.display = "none";
   document.querySelector("form").reset();
-  console.log(todosArr);
 
   // Save to localStorage
   localStorage.setItem("myTodoList", JSON.stringify(todosArr));
@@ -199,4 +214,8 @@ function addProject(event) {
   const projectName = document.getElementById(projectx.name);
   projectName.addEventListener("click", projectPage());
   // projectNameInput.value
+
+  // Save to localStorage
+  localStorage.setItem("myProjects", JSON.stringify(projectsArr));
+  console.log(localStorage.getItem("myProjects"));
 }

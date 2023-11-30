@@ -44,6 +44,12 @@ window.addEventListener("load", () => {
       const loadedProject = new Project(projectData.name);
       loadedProject.renderProject();
     });
+    projectsArr.forEach((project) => {
+      const projectName = document.getElementById(project.name);
+      projectName.addEventListener("click", () => {
+        console.log("I'm a little Jeevy");
+      });
+    });
   }
 });
 
@@ -157,6 +163,7 @@ const projectsArr = [];
 class Project {
   constructor(name) {
     this.name = name;
+    this.id = name;
   }
   renderProject() {
     const projectName = document.createElement("p");
@@ -212,7 +219,9 @@ function addProject(event) {
   projectNameInput.value = "";
 
   const projectName = document.getElementById(projectx.name);
-  projectName.addEventListener("click", projectPage());
+  projectName.addEventListener("click", () => {
+    console.log("I'm a little Jeevy");
+  });
   // projectNameInput.value
 
   // Save to localStorage

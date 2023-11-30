@@ -195,10 +195,8 @@ function addProject(event) {
   projectsArr.push(projectx);
   projectFormContainer.style.display = "none";
   projectNameInput.value = "";
+
+  const projectName = document.getElementById(projectx.name);
+  projectName.addEventListener("click", projectPage());
+  // projectNameInput.value
 }
-
-projectFormContainer.style.display = "none";
-
-const projectName = document.querySelector(".project-name");
-
-projectName.addEventListener("click", projectPage(projectNameInput.value));

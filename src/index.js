@@ -193,7 +193,8 @@ function addProject(event) {
   const projectx = new Project(projectNameInput.value);
   projectx.renderProject();
   projectsArr.push(projectx);
-  document.querySelector("form").reset();
+  projectFormContainer.style.display = "none";
+  projectNameInput.value = "";
 }
 
 projectFormContainer.style.display = "none";

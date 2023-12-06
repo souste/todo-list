@@ -10,7 +10,7 @@ class Todo {
   constructor(title, description, dueDate, priority, notes, projectName) {
     this.title = title;
     this.description = description;
-    this.dueDate = dueDate;
+    this.dueDate = dueDate instanceof Date ? dueDate : new Date(dueDate);
     this.priority = priority;
     this.notes = notes;
     this.projectName = projectName;
@@ -31,7 +31,7 @@ class Todo {
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("list-due-date");
-    dueDate.innerText = `Due Date: ${this.dueDate}`;
+    dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
     priority.classList.add("list-priority");
@@ -63,7 +63,7 @@ class Todo {
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("open-list-due-date");
-    dueDate.innerText = `Due Date: ${this.dueDate}`;
+    dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
     priority.classList.add("open-list-priority");

@@ -72,10 +72,13 @@ function projectPage(projectName, projectTodos = null) {
 
   function addProjectList(event) {
     event.preventDefault();
+
+    const parsedDueDate = parse(dueDate.value, "dd/MM/yyyy", new Date());
+
     const listx = new Todo(
       projectTitle.value,
       projectDescription.value,
-      projectDueDate.value,
+      parsedDueDate,
       projectPriority.value,
       "",
       projectName

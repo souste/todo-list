@@ -1,6 +1,7 @@
 import "./style.css";
 import { Todo, todosArr } from "./todoList.js";
 import projectPage from "./project.js";
+import { parse } from "date-fns";
 
 const content = document.querySelector("#content");
 const menuContainer = document.createElement("div");
@@ -134,10 +135,11 @@ addListButton.addEventListener("click", addList);
 
 function addList(event) {
   event.preventDefault();
+  const parsedDueDate = parse(dueDate.value, "dd/MM/yyyy", new Date());
   const listx = new Todo(
     title.value,
     description.value,
-    dueDate.value,
+    parsedDueDate,
     priority.value,
     ""
   );
@@ -214,12 +216,7 @@ function addProject(event) {
   // projectNameInput.value = "";
 
   const projectName = document.getElementById(projectx.name);
-  projectName.addEventListener("click", () => {
-    const projectTodos = todosArr.filter(
-      (todo) => todo.projectName === projectx.name
-    );
-    projectPage(projectName.id, projectTodos);
-  });
+  projectName.addEventListener("click", () => projectPage(projectName.id));
 
   // Save to localStorage
   localStorage.setItem("myProjects", JSON.stringify(projectsArr));

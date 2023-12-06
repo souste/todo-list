@@ -1,5 +1,6 @@
 import "./index.js";
 import { Todo, todosArr } from "./todoList.js";
+import { parse } from "date-fns";
 
 const content = document.querySelector("#content");
 const projectPageContainer = document.createElement("div");
@@ -42,7 +43,7 @@ function projectPage(projectName, projectTodos = null) {
 
 <div class="label-input-container">
 <label for="projectDueDate">Due Date:</label>
-<input type="text" placeholder="Need to download that plugin!" id="projectDueDate" name="projectDueDate">
+<input type="text" placeholder="DD/MM/YYYY" id="projectDueDate" name="projectDueDate">
 </div>
 
 <div class="label-input-container">
@@ -73,7 +74,7 @@ function projectPage(projectName, projectTodos = null) {
   function addProjectList(event) {
     event.preventDefault();
 
-    const parsedDueDate = parse(dueDate.value, "dd/MM/yyyy", new Date());
+    const parsedDueDate = parse(projectDueDate.value, "dd/MM/yyyy", new Date());
 
     const listx = new Todo(
       projectTitle.value,

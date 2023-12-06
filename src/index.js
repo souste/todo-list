@@ -108,7 +108,7 @@ const formHTML = `
 
 <div class="label-input-container">
 <label for="dueDate">Due Date:</label>
-<input type="text" placeholder="Need to download that plugin!" id="dueDate" name="dueDate">
+<input type="text" placeholder="DD/MM/YYYY" id="dueDate" name="dueDate">
 </div>
 
 <div class="label-input-container">

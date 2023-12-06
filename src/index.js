@@ -214,7 +214,12 @@ function addProject(event) {
   // projectNameInput.value = "";
 
   const projectName = document.getElementById(projectx.name);
-  projectName.addEventListener("click", () => projectPage(projectName.id));
+  projectName.addEventListener("click", () => {
+    const projectTodos = todosArr.filter(
+      (todo) => todo.projectName === projectx.name
+    );
+    projectPage(projectName.id, projectTodos);
+  });
 
   // Save to localStorage
   localStorage.setItem("myProjects", JSON.stringify(projectsArr));

@@ -60,17 +60,15 @@ const menuHTML = `
 
 
 <p class="menu-title">Home</p>
-<p>Today</p>
-<p>This Week</p>
+<p>Today - hardcoded</p>
+<p>This Week - hardcoded</p>
 
 <div class="title-button-container">
 <p class="menu-title">My Projects</p>
 <button class="new-project-button">+</button>
 </div>
 
-<p>Get a Job  - hardcoded</p>
-<p>Odin Project - hard coded</p>
-<p>Fitness - hardcoded</p>
+
 
 
 <button class="new-list-button">+</button>
@@ -78,7 +76,12 @@ const menuHTML = `
 
 menuContainer.innerHTML = menuHTML;
 menuContainer.classList.add("menu-container");
+
+const projectNamesContainer = document.createElement("div");
+projectNamesContainer.classList.add("project-names-container");
+
 content.appendChild(menuContainer);
+content.appendChild(projectNamesContainer);
 
 // NEW TODO LIST BUTTON
 
@@ -120,8 +123,8 @@ const formHTML = `
 </select>
 </div>
 
-<button class="add-list-button">Add</button>
-<button class="close-list-button">Close</button>
+<button class="add-list-button">+</button>
+<button class="close-list-button">X</button>
 
 
 </form>
@@ -172,7 +175,13 @@ class Project {
     projectName.classList.add("project-name");
     projectName.innerText = this.name;
     projectName.id = this.name;
-    menuContainer.appendChild(projectName);
+
+    const projectNamesContainer = document.querySelector(
+      ".project-names-container"
+    );
+    projectNamesContainer.appendChild(projectName);
+
+    menuContainer.insertBefore(projectNamesContainer, newListButton);
   }
 }
 
@@ -197,6 +206,7 @@ const projectFormHTML = `
 </div>
 
 <button class="add-project-button">Add</button>
+<button class="close-project-button">Close</button>
 </form>
 `;
 
@@ -218,7 +228,6 @@ function addProject(event) {
   projectx.renderProject();
   projectsArr.push(projectx);
   projectFormContainer.style.display = "none";
-  // projectNameInput.value = "";
 
   const projectName = document.getElementById(projectx.name);
   projectName.addEventListener("click", () => projectPage(projectName.id));

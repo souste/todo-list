@@ -18,8 +18,11 @@ function projectPage(projectName, projectTodos = null) {
   projectListButton.classList.add("project-list-button");
   projectListButton.innerText = "Add";
 
-  projectPageContainer.appendChild(projectHeader);
-  projectPageContainer.appendChild(projectListButton);
+  const headerButtonContainer = document.createElement("div");
+  headerButtonContainer.classList.add("header-button-container");
+  headerButtonContainer.appendChild(projectHeader);
+  headerButtonContainer.appendChild(projectListButton);
+  projectPageContainer.appendChild(headerButtonContainer);
   projectPageContainer.appendChild(listsContainer);
   content.appendChild(projectPageContainer);
 
@@ -56,7 +59,7 @@ function projectPage(projectName, projectTodos = null) {
 </div>
 
 <button class="add-project-list-button">Add</button>
-<button class="close-project-list-button">Close</button>
+<button class="close-list-button">Close</button>
 
 
 </form>

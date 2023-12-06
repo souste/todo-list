@@ -31,7 +31,7 @@ class Todo {
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("list-due-date");
-    dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
+    dueDate.innerText = `${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
     priority.classList.add("list-priority", this.priority.toLowerCase());

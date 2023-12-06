@@ -113,7 +113,11 @@ const formHTML = `
 
 <div class="label-input-container">
 <label for="priority">Priority:</label>
-<input type="text" placeholder="Need a dropdown here" id="priority" name="priority">
+<select id="priority" name="priority">
+  <option value="Low">Low</option>
+  <option value="Medium">Medium</option>
+  <option value="High">High</option>
+</select>
 </div>
 
 <button class="add-list-button">Add</button>

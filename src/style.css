@@ -117,6 +117,18 @@ input {
   border-color: #e5e7eb;
 }
 
+#priority option[value="Low"] {
+  color: blue;
+}
+
+#priority option[value="Medium"] {
+  color: green;
+}
+
+#priority option[value="High"] {
+  color: red;
+}
+
 /* // LIST CONTAINER */
 
 .lists-container {
@@ -147,6 +159,22 @@ input {
 .open-list-title {
   font-weight: bold;
   font-size: 30px;
+}
+
+.list-priority {
+  color: black;
+}
+
+.list-priority.low {
+  color: blue;
+}
+
+.list-priority.medium {
+  color: green;
+}
+
+.list-priority.high {
+  color: red;
 }
 
 /* // OPEN LIST CONTAINER */

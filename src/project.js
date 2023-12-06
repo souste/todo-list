@@ -48,7 +48,11 @@ function projectPage(projectName, projectTodos = null) {
 
 <div class="label-input-container">
 <label for="projectPriority">Priority:</label>
-<input type="text" placeholder="Need a dropdown here" id="projectPriority" name="projectPriority">
+<select id="projectPriority" name="projectPriority">
+  <option value="Low">Low</option>
+  <option value="Medium">Medium</option>
+  <option value="High">High</option>
+</select>
 </div>
 
 <button class="add-project-list-button">Add</button>

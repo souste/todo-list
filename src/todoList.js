@@ -34,8 +34,8 @@ class Todo {
     dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
-    priority.classList.add("list-priority");
-    priority.innerText = `Priority: ${this.priority}`;
+    priority.classList.add("list-priority", this.priority.toLowerCase());
+    priority.innerText = `${this.priority}`;
 
     listContainer.appendChild(title);
     listContainer.appendChild(description);
@@ -66,8 +66,8 @@ class Todo {
     dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
-    priority.classList.add("open-list-priority");
-    priority.innerText = `Priority: ${this.priority}`;
+    priority.classList.add("list-priority", this.priority.toLowerCase());
+    priority.innerText = `${this.priority}`;
 
     const notes = document.createElement("form");
     const notesLabel = document.createElement("label");

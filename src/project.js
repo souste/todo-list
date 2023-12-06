@@ -56,6 +56,7 @@ function projectPage(projectName, projectTodos = null) {
 </div>
 
 <button class="add-project-list-button">Add</button>
+<button class="close-project-list-button">Close</button>
 
 
 </form>

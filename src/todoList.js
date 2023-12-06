@@ -86,8 +86,7 @@ class Todo {
     closeListButton.innerText = "Close";
 
     closeListButton.addEventListener("click", () => {
-      const formContainer = document.querySelector(".form-container");
-      formContainer.style.display = "none";
+      openListContainer.style.display = "none";
     });
 
     notes.appendChild(notesLabel);

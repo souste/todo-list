@@ -121,6 +121,7 @@ const formHTML = `
 </div>
 
 <button class="add-list-button">Add</button>
+<button class="close-list-button">Close</button>
 
 
 </form>

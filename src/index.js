@@ -232,7 +232,6 @@ function addProject(event) {
 }
 
 const menuHome = document.getElementById("menu-home");
-formContainer.innerHTML = "";
 
 //  HOME BUTTON - CLICK FOR FULL TODO LIST
 

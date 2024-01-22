@@ -58,10 +58,7 @@ const menuHTML = `
 
 
 <h1 class="top-menu-title">LIFE'S TODOS</h1>
-
-
-
-<p class="menu-title">Home</p>
+<p class="menu-title" id="menu-home">Home</p>
 <div class="title-button-container">
 <p class="menu-title">My Projects</p>
 <button class="new-project-button">+</button>
@@ -233,3 +230,13 @@ function addProject(event) {
   localStorage.setItem("myProjects", JSON.stringify(projectsArr));
   console.log(localStorage.getItem("myProjects"));
 }
+
+const menuHome = document.getElementById("menu-home");
+formContainer.innerHTML = "";
+
+//  HOME BUTTON - CLICK FOR FULL TODO LIST
+
+menuHome.addEventListener("click", () => {
+  document.body.classList.remove("hide-content");
+  location.reload();
+});

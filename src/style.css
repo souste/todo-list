@@ -34,6 +34,14 @@
   font-size: 30px;
 }
 
+#menu-home {
+  cursor: pointer;
+}
+
+#menu-home:hover {
+  color: white;
+}
+
 .title-button-container {
   display: flex;
   align-items: center;
@@ -217,4 +225,14 @@ input {
 
 .project-list-button {
   margin-top: 10px;
+}
+
+.project-name {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.hide-content {
+  display: none;
 }

@@ -56,22 +56,19 @@ window.addEventListener("load", () => {
 
 const menuHTML = `
 
+
 <h1 class="top-menu-title">LIFE'S TODOS</h1>
 
 
-<p class="menu-title">Home</p>
-<p>Today - hardcoded</p>
-<p>This Week - hardcoded</p>
 
+<p class="menu-title">Home</p>
 <div class="title-button-container">
 <p class="menu-title">My Projects</p>
 <button class="new-project-button">+</button>
 </div>
-
-
-
-
 <button class="new-list-button">+</button>
+
+
 `;
 
 menuContainer.innerHTML = menuHTML;

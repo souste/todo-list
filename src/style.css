@@ -36,10 +36,11 @@
 
 #menu-home {
   cursor: pointer;
+  color: white;
 }
 
 #menu-home:hover {
-  color: white;
+  color: black;
 }
 
 .title-button-container {
@@ -233,6 +234,6 @@ input {
   font-weight: bold;
 }
 
-.hide-content {
-  display: none;
+.project-name:hover {
+  color: black;
 }

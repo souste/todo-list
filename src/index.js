@@ -237,6 +237,5 @@ formContainer.innerHTML = "";
 //  HOME BUTTON - CLICK FOR FULL TODO LIST
 
 menuHome.addEventListener("click", () => {
-  document.body.classList.remove("hide-content");
   location.reload();
 });

@@ -117,8 +117,8 @@ const formHTML = `
 </select>
 </div>
 
-<button class="add-list-button">+</button>
-<button class="close-list-button">X</button>
+<button class="add-list-button">Add</button>
+<button class="close-list-button">Close</button>
 
 
 </form>

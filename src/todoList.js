@@ -85,6 +85,9 @@ class Todo {
     const closeListButton = document.createElement("button");
     closeListButton.innerText = "Close";
 
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+
     closeListButton.addEventListener("click", () => {
       openListContainer.style.display = "none";
     });
@@ -98,8 +101,10 @@ class Todo {
     openListContainer.appendChild(dueDate);
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
+    openListContainer.appendChild(editButton);
     openListContainer.appendChild(deleteListButton);
     openListContainer.appendChild(closeListButton);
+
     content.appendChild(openListContainer);
 
     notesButton.addEventListener("click", (event) => {

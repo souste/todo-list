@@ -1,5 +1,5 @@
 import "./style.css";
-import { Todo, todosArr } from "./todoList.js";
+import { Todo, todosArr, listsContainer } from "./todoList.js";
 import projectPage from "./project.js";
 import { parse } from "date-fns";
 
@@ -76,6 +76,7 @@ projectNamesContainer.classList.add("project-names-container");
 
 content.appendChild(menuContainer);
 content.appendChild(projectNamesContainer);
+content.appendChild(listsContainer);
 
 // NEW TODO LIST BUTTON
 

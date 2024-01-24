@@ -150,4 +150,4 @@ class Todo {
   }
 }
 
-export { Todo, todosArr };
+export { Todo, todosArr, listsContainer };

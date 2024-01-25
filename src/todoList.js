@@ -37,6 +37,13 @@ class Todo {
     priority.classList.add("list-priority", this.priority.toLowerCase());
     priority.innerText = `${this.priority}`;
 
+    const updateRenderedValues = () => {
+      title.innerText = this.title;
+      description.innerText = this.description;
+      dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
+      priority.innerText = this.priority;
+    };
+
     listContainer.appendChild(title);
     listContainer.appendChild(description);
     listContainer.appendChild(dueDate);
@@ -45,11 +52,11 @@ class Todo {
     content.appendChild(listsContainer);
 
     listContainer.addEventListener("click", () => {
-      this.openTodoList(listContainer);
+      this.openTodoList(listContainer, updateRenderedValues);
     });
   }
 
-  openTodoList() {
+  openTodoList(listContaner, updateRenderedValues) {
     const openListContainer = document.createElement("div");
     openListContainer.classList.add("open-list-container");
 
@@ -146,6 +153,8 @@ class Todo {
       description.innerText = this.description;
       dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
       priority.innerText = editPriority.value;
+
+      updateRenderedValues();
     });
 
     ////////////////////////////////

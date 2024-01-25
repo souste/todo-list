@@ -85,8 +85,45 @@ class Todo {
     const closeListButton = document.createElement("button");
     closeListButton.innerText = "Close";
 
+    ////////////////////////////////
+
+    const editForm = document.createElement("form");
+    editForm.classList.add("edit-form");
+
+    const editTitle = document.createElement("input");
+    editTitle.type = "text";
+    editTitle.value = this.title;
+
+    const editDescription = document.createElement("input");
+    editDescription.type = "text";
+    editDescription.value = this.description;
+
+    const editDueDate = document.createElement("input");
+    editDueDate.type = "text";
+    editDueDate.value = this.dueDate.toDateString();
+
+    const editPriority = document.createElement("select");
+    editPriority.id = "edit-priority";
+    const priorities = ["Low", "Medium", "High"];
+    priorities.forEach((option) => {
+      const priorityOption = document.createElement("option");
+      priorityOption.value = option;
+      priorityOption.text = option;
+      editPriority.add(priorityOption);
+    });
+    editPriority.value = this.priority;
+
     const editButton = document.createElement("button");
     editButton.innerText = "Edit";
+
+    editForm.appendChild(editTitle);
+    editForm.appendChild(editDescription);
+    editForm.appendChild(editDueDate);
+    editForm.appendChild(editPriority);
+    editForm.appendChild(editButton);
+    openListContainer.appendChild(editForm);
+
+    ////////////////////////////////
 
     closeListButton.addEventListener("click", () => {
       openListContainer.style.display = "none";
@@ -128,7 +165,7 @@ class Todo {
     );
     const listContainers = document.querySelectorAll(".list-container");
 
-    if (confirm("Are you sure") === true) {
+    if (confirm("Are you sure?") === true) {
       openListContainers.forEach((openListContainer) => {
         openListContainer.remove();
       });

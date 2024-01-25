@@ -239,3 +239,11 @@ input {
 .project-name:hover {
   color: black;
 }
+
+/* EDIT FORM */
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}

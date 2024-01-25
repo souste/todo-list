@@ -85,7 +85,10 @@ class Todo {
     const closeListButton = document.createElement("button");
     closeListButton.innerText = "Close";
 
-    ////////////////////////////////
+    //////////////////////////////// EDIT FUNCTIONALITY
+
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
 
     const editForm = document.createElement("form");
     editForm.classList.add("edit-form");
@@ -113,15 +116,22 @@ class Todo {
     });
     editPriority.value = this.priority;
 
-    const editButton = document.createElement("button");
-    editButton.innerText = "Edit";
+    const editChangeButton = document.createElement("button");
+    editChangeButton.className = "change-edit-button";
+    editChangeButton.innerText = "Change";
 
     editForm.appendChild(editTitle);
     editForm.appendChild(editDescription);
     editForm.appendChild(editDueDate);
     editForm.appendChild(editPriority);
-    editForm.appendChild(editButton);
+    editForm.appendChild(editChangeButton);
     openListContainer.appendChild(editForm);
+
+    editForm.style.display = "none";
+
+    editButton.addEventListener("click", () => {
+      editForm.style.display = "flex";
+    });
 
     ////////////////////////////////
 

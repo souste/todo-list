@@ -133,6 +133,21 @@ class Todo {
       editForm.style.display = "flex";
     });
 
+    editChangeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      this.title = editTitle.value;
+      this.description = editDescription.value;
+      this.dueDate = new Date(editDueDate.value);
+      this.priority = editPriority.value;
+
+      editForm.style.display = "none";
+
+      title.innerText = this.title;
+      description.innerText = this.description;
+      dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
+      priority.innerText = editPriority.value;
+    });
+
     ////////////////////////////////
 
     closeListButton.addEventListener("click", () => {

@@ -227,7 +227,7 @@ input {
 
 .open-list-description {
   font-size: 30px;
-  background-color: white;
+  background-color: rgb(204, 189, 189);
   padding: 20px;
 }
 
@@ -237,6 +237,17 @@ input {
 
 .buttons-container {
   margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+img {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.close-list-button {
 }
 
 /* // PROJECT LIST CONTAINER */

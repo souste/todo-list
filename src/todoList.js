@@ -89,16 +89,19 @@ class Todo {
     const buttonsContainer = document.createElement("div");
     buttonsContainer.className = "buttons-container";
 
-    const deleteListButton = document.createElement("button");
-    deleteListButton.innerText = "Delete";
+    const deleteListButton = document.createElement("div");
+    deleteListButton.className = "delete-list-button";
+    deleteListButton.innerHTML = `<img src="/src/delete.png" alt="Delete">`;
 
-    const closeListButton = document.createElement("button");
-    closeListButton.innerText = "Close";
+    const closeListButton = document.createElement("div");
+    closeListButton.className = "close-list-button";
+    closeListButton.innerHTML = `<img src="/src/tick-mark.png" alt="Tick">`;
+
+    const editButton = document.createElement("div");
+    editButton.className = "edit-list-button";
+    editButton.innerHTML = `<img src="/src/edit-file.png" alt="Tick">`;
 
     //////////////////////////////// EDIT FUNCTIONALITY
-
-    const editButton = document.createElement("button");
-    editButton.innerText = "Edit";
 
     const editForm = document.createElement("form");
     editForm.classList.add("edit-form");
@@ -178,9 +181,10 @@ class Todo {
     openListContainer.appendChild(dueDate);
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
+    buttonsContainer.appendChild(closeListButton);
     buttonsContainer.appendChild(editButton);
     buttonsContainer.appendChild(deleteListButton);
-    buttonsContainer.appendChild(closeListButton);
+
     openListContainer.appendChild(buttonsContainer);
 
     content.appendChild(openListContainer);
@@ -206,7 +210,7 @@ class Todo {
     );
     const listContainers = document.querySelectorAll(".list-container");
 
-    if (confirm("Are you sure?") === true) {
+    if (confirm("DELETE TODO: Are you sure?") === true) {
       openListContainers.forEach((openListContainer) => {
         openListContainer.remove();
       });

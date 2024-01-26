@@ -10,13 +10,13 @@ projectHeader.classList.add("project-header");
 
 function projectPage(projectName, projectTodos = null) {
   projectPageContainer.innerHTML = "";
-  projectHeader.innerText = projectName;
+  projectHeader.innerText = `Project: ${projectName}`;
 
   const listsContainer = document.querySelector(".lists-container");
   listsContainer.innerHTML = "";
-  const projectListButton = document.createElement("button");
+  const projectListButton = document.createElement("div");
   projectListButton.classList.add("project-list-button");
-  projectListButton.innerText = "Add";
+  projectListButton.innerText = "+";
 
   const headerButtonContainer = document.createElement("div");
   headerButtonContainer.classList.add("header-button-container");

@@ -227,7 +227,6 @@ input {
 
 .open-list-description {
   font-size: 30px;
-  background-color: rgb(204, 189, 189);
   padding: 20px;
 }
 
@@ -247,14 +246,27 @@ img {
   cursor: pointer;
 }
 
-.close-list-button {
-}
-
 /* // PROJECT LIST CONTAINER */
 
 .project-header {
   margin-bottom: 10px;
   text-align: center;
+  font-size: 50px;
+}
+
+.project-list-button {
+  font-size: 70px;
+  border: none;
+  color: pink;
+  cursor: pointer;
+  font-weight: bold;
+  width: 3rem;
+  height: 2.7rem;
+  margin-left: 100px;
+}
+
+.project-list-button:hover {
+  color: black;
 }
 
 .header-button-container {

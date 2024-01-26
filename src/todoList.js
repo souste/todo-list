@@ -52,11 +52,11 @@ class Todo {
     content.appendChild(listsContainer);
 
     listContainer.addEventListener("click", () => {
-      this.openTodoList(listContainer, updateRenderedValues);
+      this.openTodoList(updateRenderedValues);
     });
   }
 
-  openTodoList(listContaner, updateRenderedValues) {
+  openTodoList(updateRenderedValues) {
     const openListContainer = document.createElement("div");
     openListContainer.classList.add("open-list-container");
 
@@ -85,6 +85,9 @@ class Todo {
     notesInput.name = "notes";
     const notesButton = document.createElement("button");
     notesButton.innerText = "Add";
+
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.className = "buttons-container";
 
     const deleteListButton = document.createElement("button");
     deleteListButton.innerText = "Delete";
@@ -155,6 +158,9 @@ class Todo {
       priority.innerText = editPriority.value;
 
       updateRenderedValues();
+
+      localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+      console.log("Saved to localStorage:", todosArr);
     });
 
     ////////////////////////////////
@@ -172,9 +178,10 @@ class Todo {
     openListContainer.appendChild(dueDate);
     openListContainer.appendChild(priority);
     openListContainer.appendChild(notes);
-    openListContainer.appendChild(editButton);
-    openListContainer.appendChild(deleteListButton);
-    openListContainer.appendChild(closeListButton);
+    buttonsContainer.appendChild(editButton);
+    buttonsContainer.appendChild(deleteListButton);
+    buttonsContainer.appendChild(closeListButton);
+    openListContainer.appendChild(buttonsContainer);
 
     content.appendChild(openListContainer);
 

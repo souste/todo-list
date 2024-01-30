@@ -146,25 +146,39 @@ class Todo {
       editForm.style.display = "flex";
     });
 
+    console.log("editChangeButton:", editChangeButton);
+
     editChangeButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      this.title = editTitle.value;
-      this.description = editDescription.value;
-      this.dueDate = new Date(editDueDate.value);
-      this.priority = editPriority.value;
+      try {
+        event.preventDefault();
 
-      editForm.style.display = "none";
+        this.title = editTitle.value;
+        this.description = editDescription.value;
+        this.dueDate = new Date(editDueDate.value);
+        this.priority = editPriority.value;
 
-      title.innerText = this.title;
-      description.innerText = this.description;
-      dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
-      priority.innerText = editPriority.value;
+        editForm.style.display = "none";
 
-      updateRenderedValues();
+        title.innerText = this.title;
+        description.innerText = this.description;
+        dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
+        priority.innerText = editPriority.value;
 
-      localStorage.setItem("myTodoList", JSON.stringify(todosArr));
-      console.log("Saved to localStorage:", todosArr);
+        const index = todosArr.findIndex((todo) => todo.title === this.title);
+        if (index !== -1) {
+          todosArr[index] = this;
+        }
+
+        updateRenderedValues();
+
+        localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+        console.log("Saved to localStorage:", todosArr);
+      } catch (error) {
+        console.error("Error in editChangeButton click event:", error);
+      }
     });
+
+    editForm.style.display = "none";
 
     ////////////////////////////////
 

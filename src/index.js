@@ -118,9 +118,11 @@ const formHTML = `
 </select>
 </div>
 
-<button class="add-list-button">Add</button>
-<button class="close-list-button">Close</button>
+<div class="form-button-container">
+<img src="/src/tick-mark.png" class="add-list-button" alt="Tick"/>
+<img src="/src/close.png" class="close-list-button" alt="Tick"/>
 
+</div>
 
 </form>
 `;
@@ -155,6 +157,15 @@ function addList(event) {
   localStorage.setItem("myTodoList", JSON.stringify(todosArr));
   console.log(localStorage.getItem("myTodoList"));
 }
+
+const closeListButton = document.querySelector(".close-list-button");
+closeListButton.addEventListener("click", () => {
+  formContainer.style.display = "none";
+  document.getElementById("title").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("dueDate").value = "";
+  document.getElementById("priority").value = "Low";
+});
 
 // PROJECT CLASS
 

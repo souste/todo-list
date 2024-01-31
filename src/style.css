@@ -105,6 +105,7 @@
 .form-header {
   font-weight: bold;
   font-size: 30px;
+  text-align: center;
 }
 
 .label-input-container {
@@ -136,6 +137,13 @@ input {
 
 #priority option[value="High"] {
   color: red;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
 }
 
 /* // LIST CONTAINER */

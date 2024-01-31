@@ -100,7 +100,7 @@ class Todo {
 
     const editButton = document.createElement("div");
     editButton.className = "edit-list-button";
-    editButton.innerHTML = `<img src="/src/edit-file.png" alt="Tick">`;
+    editButton.innerHTML = `<img src="/src/edit-file.png" alt="Edit">`;
 
     //////////////////////////////// EDIT FUNCTIONALITY
 

@@ -152,6 +152,8 @@ class Todo {
       try {
         event.preventDefault();
 
+        const oldTitle = this.title;
+
         this.title = editTitle.value;
         this.description = editDescription.value;
         this.dueDate = new Date(editDueDate.value);
@@ -164,15 +166,17 @@ class Todo {
         dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
         priority.innerText = editPriority.value;
 
-        const index = todosArr.findIndex((todo) => todo.title === this.title);
+        const index = todosArr.findIndex((todo) => todo.title === oldTitle);
         if (index !== -1) {
           todosArr[index] = this;
+
+          localStorage.setItem("myTodoList", JSON.stringify(todosArr));
+          console.log("Updated in localStorage:", todosArr);
+        } else {
+          console.error("Todo not found in todosArr");
         }
 
         updateRenderedValues();
-
-        localStorage.setItem("myTodoList", JSON.stringify(todosArr));
-        console.log("Saved to localStorage:", todosArr);
       } catch (error) {
         console.error("Error in editChangeButton click event:", error);
       }

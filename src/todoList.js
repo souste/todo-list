@@ -74,17 +74,18 @@ class Todo {
 
     const priority = document.createElement("p");
     priority.classList.add("list-priority", this.priority.toLowerCase());
+    priority.id = "open-list-priority";
     priority.innerText = `${this.priority}`;
 
-    const notes = document.createElement("form");
-    const notesLabel = document.createElement("label");
-    notesLabel.innerText = "Notes";
-    const notesInput = document.createElement("input");
-    notesInput.type = "text";
-    notesInput.id = "notes";
-    notesInput.name = "notes";
-    const notesButton = document.createElement("button");
-    notesButton.innerText = "Add";
+    // const notes = document.createElement("form");
+    // const notesLabel = document.createElement("label");
+    // notesLabel.innerText = "Notes";
+    // const notesInput = document.createElement("input");
+    // notesInput.type = "text";
+    // notesInput.id = "notes";
+    // notesInput.name = "notes";
+    // const notesButton = document.createElement("button");
+    // notesButton.innerText = "Add";
 
     const buttonsContainer = document.createElement("div");
     buttonsContainer.className = "buttons-container";
@@ -146,8 +147,6 @@ class Todo {
       editForm.style.display = "flex";
     });
 
-    console.log("editChangeButton:", editChangeButton);
-
     editChangeButton.addEventListener("click", (event) => {
       try {
         event.preventDefault();
@@ -190,15 +189,15 @@ class Todo {
       openListContainer.style.display = "none";
     });
 
-    notes.appendChild(notesLabel);
-    notes.appendChild(notesInput);
-    notes.appendChild(notesButton);
+    // notes.appendChild(notesLabel);
+    // notes.appendChild(notesInput);
+    // notes.appendChild(notesButton);
 
     openListContainer.appendChild(title);
     openListContainer.appendChild(description);
     openListContainer.appendChild(dueDate);
     openListContainer.appendChild(priority);
-    openListContainer.appendChild(notes);
+    // openListContainer.appendChild(notes);
     buttonsContainer.appendChild(closeListButton);
     buttonsContainer.appendChild(editButton);
     buttonsContainer.appendChild(deleteListButton);
@@ -207,15 +206,15 @@ class Todo {
 
     content.appendChild(openListContainer);
 
-    notesButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      const notesInput = document.querySelector("#notes");
+    // notesButton.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   const notesInput = document.querySelector("#notes");
 
-      const newNote = document.createElement("p");
-      newNote.innerText = notesInput.value;
-      openListContainer.appendChild(newNote);
-      notesInput.value = "";
-    });
+    //   const newNote = document.createElement("p");
+    //   newNote.innerText = notesInput.value;
+    //   openListContainer.appendChild(newNote);
+    //   notesInput.value = "";
+    // });
 
     deleteListButton.addEventListener("click", () => {
       this.deleteTodoList();

@@ -224,15 +224,23 @@ input {
 
 .open-list-title {
   font-size: 40px;
+  background-color: pink;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .open-list-description {
   font-size: 30px;
   padding: 20px;
+  color: rgb(50, 50, 50);
 }
 
 .open-list-due-date {
-  font-size: 20px;
+  font-size: 30px;
+  color: rgb(50, 50, 50);
+}
+
+#open-list-priority {
+  font-size: 30px;
 }
 
 .buttons-container {

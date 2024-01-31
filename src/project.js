@@ -58,8 +58,13 @@ function projectPage(projectName, projectTodos = null) {
 </select>
 </div>
 
-<button class="add-project-list-button">Add</button>
-<button class="close-list-button">Close</button>
+
+
+<div class="form-button-container">
+
+<img src="/src/tick-mark.png" class="add-project-list-button" alt="Tick"/>
+<img src="/src/close.png" class="close-project-list-button" alt="Close"/>
+</div>
 
 
 </form>
@@ -109,6 +114,17 @@ function projectPage(projectName, projectTodos = null) {
       (todo) => todo.projectName === projectName
     );
   }
+
+  const closeProjectListButton = document.querySelector(
+    ".close-project-list-button"
+  );
+  closeProjectListButton.addEventListener("click", () => {
+    projectTodoFormContainer.style.display = "none";
+    document.getElementById("projectTitle").value = "";
+    document.getElementById("projectDescription").value = "";
+    document.getElementById("projectDueDate").value = "";
+    document.getElementById("projectPriority").value = "Low";
+  });
 
   projectTodos.forEach((todoData) => {
     const loadedTodo = new Todo(

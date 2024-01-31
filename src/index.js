@@ -211,8 +211,11 @@ const projectFormHTML = `
 <input type="text" placeholder="Get a Job" id="name" name="name">
 </div>
 
-<button class="add-project-button">Add</button>
-<button class="close-project-button">Close</button>
+<div class="form-button-container">
+
+<img src="/src/tick-mark.png" class="add-project-button" alt="Tick"/>
+<img src="/src/close.png" class="close-project-button" alt="Close"/>
+</div>
 </form>
 `;
 
@@ -242,6 +245,12 @@ function addProject(event) {
   localStorage.setItem("myProjects", JSON.stringify(projectsArr));
   console.log(localStorage.getItem("myProjects"));
 }
+
+const closeProjectButton = document.querySelector(".close-project-button");
+closeProjectButton.addEventListener("click", () => {
+  projectFormContainer.style.display = "none";
+  document.getElementById("name").value = "";
+});
 
 const menuHome = document.getElementById("menu-home");
 

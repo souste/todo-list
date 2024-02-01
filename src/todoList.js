@@ -92,15 +92,15 @@ class Todo {
 
     const deleteListButton = document.createElement("div");
     deleteListButton.className = "delete-list-button";
-    deleteListButton.innerHTML = `<img src="/src/delete.png" alt="Delete">`;
+    deleteListButton.innerHTML = `<img src="delete.png" alt="Delete">`;
 
     const closeListButton = document.createElement("div");
     closeListButton.className = "close-list-button";
-    closeListButton.innerHTML = `<img src="/src/tick-mark.png" alt="Tick">`;
+    closeListButton.innerHTML = `<img src="tick-mark.png" alt="Tick">`;
 
     const editButton = document.createElement("div");
     editButton.className = "edit-list-button";
-    editButton.innerHTML = `<img src="/src/edit-file.png" alt="Edit">`;
+    editButton.innerHTML = `<img src="edit-file.png" alt="Edit">`;
 
     //////////////////////////////// EDIT FUNCTIONALITY
 

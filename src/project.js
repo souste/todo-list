@@ -62,8 +62,8 @@ function projectPage(projectName, projectTodos = null) {
 
 <div class="form-button-container">
 
-<img src="/todo-list/src/tick-mark.png" class="add-project-list-button" alt="Tick"/>
-<img src="/todo-list/src/close.png" class="close-project-list-button" alt="Close"/>
+<img src="src/tick-mark.png" class="add-project-list-button" alt="Tick"/>
+<img src="src/close.png" class="close-project-list-button" alt="Close"/>
 </div>
 
 

@@ -316,3 +316,17 @@ img {
   flex-direction: column;
   position: absolute;
 }
+
+/* BUTTON IMAGES */
+
+.add-list-button,
+.add-project-button,
+.add-project-list-button {
+  background-image: url("tick-mark.png");
+}
+
+.close-list-button,
+.close-project-button,
+.close-project-list-button {
+  background-image: url("close.png");
+}

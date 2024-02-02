@@ -119,8 +119,8 @@ const formHTML = `
 </div>
 
 <div class="form-button-container">
-<img src="/src/tick-mark.png" class="add-list-button" alt="Tick"/>
-<img src="/src/close.png" class="close-list-button" alt="Close"/>
+<img  class="add-list-button" alt="Tick"/>
+<img  class="close-list-button" alt="Close"/>
 
 </div>
 
@@ -213,8 +213,8 @@ const projectFormHTML = `
 
 <div class="form-button-container">
 
-<img src="/src/tick-mark.png" class="add-project-button" alt="Tick"/>
-<img src="/src/close.png" class="close-project-button" alt="Close"/>
+<img  class="add-project-button" alt="Tick"/>
+<img  class="close-project-button" alt="Close"/>
 </div>
 </form>
 `;

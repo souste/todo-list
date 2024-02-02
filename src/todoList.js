@@ -70,7 +70,7 @@ class Todo {
 
     const dueDate = document.createElement("p");
     dueDate.classList.add("open-list-due-date");
-    dueDate.innerText = `Due Date: ${this.dueDate.toLocaleDateString()}`;
+    dueDate.innerText = `${this.dueDate.toLocaleDateString()}`;
 
     const priority = document.createElement("p");
     priority.classList.add("list-priority", this.priority.toLowerCase());
@@ -107,6 +107,9 @@ class Todo {
     const editForm = document.createElement("form");
     editForm.classList.add("edit-form");
 
+    const editContainerTitle = document.createElement("h2");
+    editContainerTitle.innerText = "Edit Your Items";
+
     const editTitle = document.createElement("input");
     editTitle.type = "text";
     editTitle.value = this.title;
@@ -130,10 +133,12 @@ class Todo {
     });
     editPriority.value = this.priority;
 
-    const editChangeButton = document.createElement("button");
+    const editChangeButton = document.createElement("img");
     editChangeButton.className = "change-edit-button";
-    editChangeButton.innerText = "Change";
+    editChangeButton.src = "src/tick-mark.png";
+    editChangeButton.alt = "Tick";
 
+    editForm.appendChild(editContainerTitle);
     editForm.appendChild(editTitle);
     editForm.appendChild(editDescription);
     editForm.appendChild(editDueDate);

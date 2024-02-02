@@ -319,14 +319,21 @@ img {
 
 /* BUTTON IMAGES */
 
-.add-list-button,
+/* .add-list-button,
 .add-project-button,
 .add-project-list-button {
   background-image: url("tick-mark.png");
+  width: 30px;
+  height: auto;
+  cursor: pointer;
 }
 
 .close-list-button,
 .close-project-button,
 .close-project-list-button {
   background-image: url("close.png");
-}
+  background-repeat: no-repeat;
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+} */
